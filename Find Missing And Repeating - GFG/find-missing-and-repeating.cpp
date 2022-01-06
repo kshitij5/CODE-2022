@@ -7,6 +7,8 @@ using namespace std;
 class Solution{
 public:
     // // using optimized map
+    // // tc - o(n)
+    // // sc - o(n)
     // int *findTwoElement(int *arr, int n) {
     //     vector<int> map(n+1, 0);
         
@@ -27,6 +29,8 @@ public:
     // }
     
     // using optimized inplace map
+    // // tc - o(n)
+    // // sc - o(n)
     int *findTwoElement(int *arr, int n) {
        int *res=new int[2];
        
