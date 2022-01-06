@@ -7,7 +7,7 @@ public:
         unordered_map<string, vector<string>> map;
         
         // store anagrams in group using map
-        for(string s: strs) {
+        for(auto& s: strs) {
             string key = s;
             
             // sorting to generate key
@@ -19,8 +19,10 @@ public:
         vector<vector<string>> res;
         
         // extract all the grouped anagrams
-        for(auto it: map) res.push_back(it.second);
+        for(auto& it: map) res.push_back(it.second);
         
         return res;
     }
+    
+    
 };
