@@ -13,13 +13,13 @@ public:
             // sorting to generate key
             sort(key.begin(), key.end());
             
-            map[key].push_back(s);
+            map[key].push_back(move(s));
         }
         
         vector<vector<string>> res;
         
         // extract all the grouped anagrams
-        for(auto& it: map) res.push_back(it.second);
+        for(auto& it: map) res.push_back(move(it.second));
         
         return res;
     }
