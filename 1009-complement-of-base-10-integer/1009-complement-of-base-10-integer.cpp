@@ -8,14 +8,14 @@ public:
     // but instead, multiplying when digit is 0 and not 1
     // (obviously since we are finding complement)
     // eg - >>> 1       0       1       0   = 10
-    //          2*0 +  2*1  +  2*0  +  2*3  = 5
+    //          0   +  2^2  +   0   +  2^0  = 5
     int bitwiseComplement(int n) {
 	//only one case is exception because we can't handle  0 in while loop
         if(n == 0) return 1;
 		
         int ans = 0, i = 0;
         while(n){
-            if(n%2 == 0)
+            if(n%2 == 0)        // n%2 will only be 0 when its 0 at LSB
                 ans += pow(2, i);   // all are we doing is right shifting a bit
             i++;  //i will increase every time because of shifting of bits
             n/=2;
