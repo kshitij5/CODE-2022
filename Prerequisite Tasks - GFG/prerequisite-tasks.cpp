@@ -16,7 +16,7 @@ public:
             //  visiting its all adjacent nodes
             for(auto it : adj[src]){
                 if(!visited[it]) {
-                    if(dfs(it,visited,recstack,adj))
+                    if(dfs(it, visited, recstack, adj))
                         return true;
                 }
                 else if(recstack[it]) {
@@ -34,8 +34,8 @@ public:
 	    vector<int>adj[N];
 	    
 	    // creating adjency matrix
-	    for(int i=0; i<prerequisites.size(); i++){
-	        int u = prerequisites[i].first, v = prerequisites[i].second;
+	    for(auto it: prerequisites){
+	        int u = it.first, v = it.second;
 	        adj[u].push_back(v);
 	    }
 	    
@@ -45,7 +45,7 @@ public:
 	    // dfs if not visited
 	    for(int i=0; i<N; i++){
 	        if(!visited[i]){
-	            if(dfs(i,visited,recstack,adj)){
+	            if(dfs(i, visited, recstack, adj)){
 	                return false;
 	            }
 	        }
