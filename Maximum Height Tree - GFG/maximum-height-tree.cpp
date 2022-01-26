@@ -17,10 +17,7 @@ public:
         int i =  floor(sqrt(2*n));
         
         int r = (i*(i+1))/2;
-        while(r>n) {
-            i--;
-            r = (i*(i+1))/2;
-        }
+        if(r>n) i--;
         
         return i;
     }
