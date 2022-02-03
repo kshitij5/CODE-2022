@@ -30,8 +30,6 @@ int main() {
 //User function Template for C++
 
 string reverseWord(string str){
-    int n = str.size();
-    
     string rev;
     for(char c: str) {
         rev = c+rev;
