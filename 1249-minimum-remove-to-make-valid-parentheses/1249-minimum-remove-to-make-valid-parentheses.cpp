@@ -38,8 +38,10 @@ public:
         
         // Remove defected parentheses from string
         string res;
-        for(char c: s) if(c!='*')res += c;
+        // for(char c: s) if(c!='*')res += c;
         
-        return res;
+        s.erase(remove(s.begin(), s.end(), '*'),s.end());
+        
+        return s;
     }
 };
