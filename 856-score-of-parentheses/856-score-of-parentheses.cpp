@@ -8,27 +8,21 @@ public:
                 st.push(-1);
                 continue;
             } 
+            int c = 0;
             
-            if(st.top() == -1) {
-                st.pop(), st.push(1);
-            } else {
-                int c = 0;
-
-                while(st.top()!=-1){
-                    c+=st.top();
-                    st.pop();
-                }
-
+            while(st.top()!=-1){
+                c+=st.top();
                 st.pop();
-                st.push(c*2);
             }
+            
+            st.pop();
+            c = c > 0 ? c*=2 : 1;
+            st.push(c);
         }
         
         int res = 0;
-        while(!st.empty()) {
-            res+=st.top();
-            st.pop();
-        }
+        while(!st.empty())
+            res+=st.top(), st.pop();
         
         return res;
     }
