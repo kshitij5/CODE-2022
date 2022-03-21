@@ -1,5 +1,6 @@
 class Solution {
 public:
+    // using map and two pointer
     vector<int> partitionLabels(string s) {
         int n = s.size();
         vector<int> res;
@@ -17,7 +18,6 @@ public:
                 // cout<<s[i] << maxlength << endl;
                 res.push_back(maxlength-left+1);
                 left = i;
-                maxlength = lastloc[s[i]-'a'];
             }
             maxlength = max(maxlength, lastloc[s[i]-'a']);
         }
