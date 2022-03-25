@@ -5,8 +5,8 @@ public:
         int n = costs.size();
         
         // 1. first we need to calculate the impacts
-        // -ve means its better to fly to city a
-        // +ve means its better to fly to city b
+        // smaller or -ve means its better to fly to city a (cheaper)
+        // larger or +ve means its better to fly to city b (cheaper)
         for(int i=0; i<n; i++) {
             int impct = costs[i][0] - costs[i][1];
             impact.push_back({impct, i});
@@ -20,7 +20,7 @@ public:
         // 3. since already sorted, we can assume that
         // choosing first n/2 people to go to city a
         // and next n/2 people to go to city b will give us
-        // the most optimised result
+        // the most optimal result
         for(auto it: impact) {
             // cout << it[0] << " " << it[1] << endl;
             if(k>0) sum += costs[it[1]][0], k--;
