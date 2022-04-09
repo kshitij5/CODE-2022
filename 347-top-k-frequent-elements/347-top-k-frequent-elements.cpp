@@ -47,7 +47,7 @@ public:
 //     }
     
     // using bucket sort
-    // tc - o(n)
+    // tc - o(n) for best case/average case
     // sc - o(n)
     vector<int> topKFrequent(vector<int>& nums, int k) {
         int n = nums.size();
