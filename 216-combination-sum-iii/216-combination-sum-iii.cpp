@@ -1,5 +1,7 @@
 class Solution {
 public:
+    // using take not take approach
+    // tc - o(2^n*k)
     void helper(int i, int k, int target, vector<int>& ds, vector<vector<int>>& res) {
         if(ds.size() >= k) {
             if(target==0) {
