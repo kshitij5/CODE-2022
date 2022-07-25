@@ -30,6 +30,8 @@ public:
 //     }
     
     // better optimised approach, based on given condition
+    // Time complexity: O(n+m)
+    // Space complexity: O(1)
     bool searchMatrix(vector<vector<int>>& matrix, int target) {
         int n = matrix.size()-1, m = matrix[0].size()-1;
         int row = 0, col = m;
