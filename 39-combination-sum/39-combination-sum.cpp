@@ -1,24 +1,26 @@
 class Solution {
 public:
-    void dfs(vector<int>& candidates, int target, vector<vector<int>>&res, vector<int>&ans, int idx) {
+    void func(int idx, vector<int>& candidates, int target, vector<int>& curr, vector<vector<int>>& res) {
         if(idx >= candidates.size()) return;
         if(target == 0) {
-            res.push_back(ans);
+            res.push_back(curr);
             return;
         }
         
         if(candidates[idx] <= target) {
-            ans.push_back(candidates[idx]);
-            dfs(candidates, target-candidates[idx], res, ans, idx);
-            ans.pop_back();
+            curr.push_back(candidates[idx]);
+            func(idx, candidates, target-candidates[idx], curr, res);
+            curr.pop_back();
         }
-        dfs(candidates, target, res, ans, idx+1);
-        return;
+        
+        func(idx+1, candidates, target, curr, res);
     }
     vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+        vector<int> curr;
         vector<vector<int>> res;
-        vector<int> ans;
-        dfs(candidates, target, res, ans, 0);
+        
+        func(0, candidates, target, curr, res);
+        
         return res;
     }
 };
