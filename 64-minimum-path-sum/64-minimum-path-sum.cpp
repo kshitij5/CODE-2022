@@ -14,7 +14,7 @@ public:
 	    int down = f(i+1, j, n, m, grid, dp);
 	    
 	    
-	    return dp[i][j] = grid[i][j]+min(down, right);//min({top, left, right, down});
+	    return dp[i][j] = grid[i][j]+min(down, right);
 	    
 	}
     int minPathSum(vector<vector<int>>& grid) {
