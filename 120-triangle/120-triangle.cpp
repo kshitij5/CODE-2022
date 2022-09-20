@@ -23,24 +23,24 @@ public:
     
     int minimumTotal(vector<vector<int>>& triangle) {
         int n = triangle.size();
-        vector<vector<int>> dp(n, vector<int>(n, 0));
+        vector<int> dp(n, 0);
         
         for(int i=n-1;i>=0;i--) {
             for(int j=0;j<=i;j++) {
                 if(i==n-1) {
-                    dp[i][j] = triangle[i][j];
+                    dp[j] = triangle[i][j];
                     continue;
                 }
                 
                 
                 int down = 1e9, right = 1e9;
-                down = dp[i+1][j];
-                if(j<=i) right = dp[i+1][j+1];
+                down = dp[j];
+                if(j<=i) right = dp[j+1];
 
-                dp[i][j] = triangle[i][j] + min(down, right);
+                dp[j] = triangle[i][j] + min(down, right);
             }
         }
         
-        return dp[0][0];
+        return dp[0];
     }
 };
