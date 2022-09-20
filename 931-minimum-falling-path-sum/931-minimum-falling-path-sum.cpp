@@ -35,27 +35,29 @@ public:
         int res = INT_MAX;
         int n = matrix.size(), m = matrix[0].size();
         
-        vector<vector<int>> dp(n+1, vector<int>(m+1, 0));
+        vector<int> curr(m+1, 0), prev(m+1);
         
         for(int i=0;i<n;i++) {
             for(int j=0;j<m;j++) {
                 if(i==0) {
-                    dp[i][j] = matrix[i][j];
+                    curr[j] = matrix[i][j];
                     continue;
                 }
                 
                 int rd = 1e9, top=1e9, ld = 1e9;
 
-                if(j>0)  rd = dp[i-1][j-1];
-                top = dp[i-1][j];
-                if(j<n-1) ld = dp[i-1][j+1];
+                if(j>0)  rd = prev[j-1];
+                top = prev[j];
+                if(j<n-1) ld = prev[j+1];
 
-                dp[i][j] = matrix[i][j] + min({top, rd, ld});
+                curr[j] = matrix[i][j] + min({top, rd, ld});
             }
+            
+            prev = curr;
         }
         
         for(int i=0;i<m;i++) {
-            res = min(res, dp[n-1][i]);
+            res = min(res, curr[i]);
         }
         
         return res;
